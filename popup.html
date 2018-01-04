@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bit Coin Alert</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js" crossorigin="anonymous"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet" crossorigin="anonymous">
+	<script src="js/popup.js"></script>
+	<link href="css/popup.css" rel="stylesheet" media="screen">	
+</head>
+<body>
+    <div class="panel panel-warning">
+		<div class="panel-heading"><h1 class="text-center">Bitcoin Alert</h1></div>
+		<div class="panel-body">
+			<div class="col-xs-12"><h3><label>Bitcoin ( 1 BTC):</label> $<span id="price"></span></h3></div>
+			<div class="col-md-12"><h3><label>Percent Change (24hr.):</label> <span id="change"></span> %</h3></div>
+			<div class="col-md-12"><h3><label>Market Cap:</label> $<span id="marketCap"></span></h3></div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label>Set Alert :</label>
+					<div class="make-switch" data-on="warning" data-off="warning"><input type="checkbox" name="my-checkbox" checked></div>
+					<div class="input-group alertPrice">
+						<span class="input-group-addon">$</span>
+						<input type="text" id="alertPrice" class="form-control" aria-label="Amount (to the nearest dollar)">
+						<span class="input-group-addon">.00</span>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="col-md-2"><button type="button" class="btn btn-success" id="buyCoin"><span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span> Buy On Coinbase </button></div>
+			
+		</div>
+    </div>
+</body>	
+</html>
