@@ -1,10 +1,8 @@
 $(function(){
-	debugger;
 	var chkAlertPrice = $("[name='my-checkbox']");
 	chkAlertPrice.bootstrapSwitch({onColor: 'warning', size: 'mini'});
 	
 	chrome.storage.sync.get(['isAlertSet', 'alertPrice'], function(coin){
-		debugger;
 		if(coin.isAlertSet && coin.alertPrice){
 			$(".alertPrice").show();
 		}
