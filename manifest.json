@@ -4,12 +4,12 @@
 	"version": "1.0",
 	"description": "This is extension for tracking of Bitcoin price.",
 	"icons": {
-		"128": "img/bitcoinIcon128.png",
-		"48": "img/bitcoinIcon48.png",
-		"16": "img/bitcoinIcon16.png"
+		"128": "img/bitcoin_Icon128.png",
+		"48": "img/bitcoin_Icon48.png",
+		"16": "img/bitcoin_Icon16.png"
 	},
 	"browser_action": {
-		"default_icon": "img/bitcoinIcon16.png",
+		"default_icon": "img/bitcoin_Icon16.png",
 		"default_popup": "popup.html"
 	},
 	"content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://ajax.googleapis.com; object-src 'self'",
