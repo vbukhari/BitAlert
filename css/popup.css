@@ -15,7 +15,7 @@ body, section {			/* Change width and height to own preferences */
 }
 
 .input-group.alertPrice {
-    width: 225px;
+    width: 200px;
 }
 .glyphicon-alert{
 	color: #f0ad4e;

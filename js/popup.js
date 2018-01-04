@@ -47,7 +47,6 @@ $(function(){
 	});
 	
 	function update() {
-		debugger;
       $.getJSON("https://api.coinmarketcap.com/v1/ticker/bitcoin/", 
       function(json){
 		 if(json){
@@ -76,6 +75,7 @@ $(function(){
 		 }
     });
   }
+  	update();
 	setInterval(update, 30000);
-	update();
+	//update();
 });
