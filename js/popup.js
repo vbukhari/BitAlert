@@ -1,5 +1,4 @@
 $(function(){
-	debugger;
 	var chkAlertPrice = $("[name='my-checkbox']");
 	chkAlertPrice.bootstrapSwitch({onColor: 'warning', size: 'mini'});
 
@@ -27,7 +26,12 @@ $(function(){
 	chrome.storage.sync.get(['alertPrice'], function(prices){
 		$("#alertPrice").val(prices.alertPrice);
 		console.log(prices.alertPrice);
-	})
+	});
+	
+	$("#buyCoin").click(function(e){
+		e.preventDefault();
+		chrome.tabs.create({url: "https://www.coinbase.com/"});
+	});
 	//^\$?(?!0.00)(([0-9]{1,3},([0-9]{3},)*)[0-9]{3}|[0-9]{1,3})(\.[0-9]{2})?$
 	function update() {
       $.getJSON("https://api.coinmarketcap.com/v1/ticker/bitcoin/", 

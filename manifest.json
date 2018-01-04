@@ -13,9 +13,9 @@
 		"default_popup": "popup.html"
 	},
 	"content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://ajax.googleapis.com; object-src 'self'",
-	"background":{
-		"scripts":["js/background.js"],
-		"persistent": false
-	},
+	"background": {
+        "persistent": true,
+        "scripts": ["js/jquery-3.2.1.min.js", "js/background.js"]  
+    },
 	"permissions":["storage", "notifications"]
 }
