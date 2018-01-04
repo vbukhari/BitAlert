@@ -31,7 +31,7 @@ $(function(){
 		chrome.storage.sync.set({'alertPrice': $(this).val()}, function(){
 			var notification = {
 				type: 'basic',
-				iconUrl: 'img/bitcoinIcon48.png',
+				iconUrl: 'img/bitcoin_Icon48.png',
 				title: 'Alert Set!',
 				message: 'The alert for Bitcoin is set. You will be notify when the price reach the value.'
 			};
@@ -47,6 +47,7 @@ $(function(){
 	});
 	
 	function update() {
+		debugger;
       $.getJSON("https://api.coinmarketcap.com/v1/ticker/bitcoin/", 
       function(json){
 		 if(json){
@@ -60,7 +61,7 @@ $(function(){
 					{
 						var notification = {
 							type: 'basic',
-							iconUrl: 'img/bitcoinIcon48.png',
+							iconUrl: 'img/bitcoin_Icon48.png',
 							title: 'Bitcoin Set Price reached!',
 							message: 'The Bigcoin price has reached your set price, Click button below to Buy/Sell your coins!'
 						};

@@ -13,7 +13,7 @@ $(function(){
 						{
 							var notification = {
 								type: 'basic',
-								iconUrl: 'img/bitcoinIcon48.png',
+								iconUrl: 'img/bitcoin_Icon48.png',
 								title: 'Bitcoin Set Price reached!',
 								message: 'The Bigcoin price has reached your set price, Click button below to Buy/Sell your coins!'
 							};
