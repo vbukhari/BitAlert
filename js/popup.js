@@ -1,11 +1,20 @@
 $(function(){
+	debugger;
 	var chkAlertPrice = $("[name='my-checkbox']");
 	chkAlertPrice.bootstrapSwitch({onColor: 'warning', size: 'mini'});
 	
 	chrome.storage.sync.get(['isAlertSet', 'alertPrice'], function(coin){
+		debugger;
+		if(coin.isAlertSet && coin.alertPrice){
+			$(".alertPrice").show();
+		}
+		else{ 
+			$("#alertPrice").val('');
+			$(".alertPrice").hide();
+		}
+		
 		$("#alertPrice").val(coin.alertPrice);
 		chkAlertPrice.bootstrapSwitch('state', coin.isAlertSet);
-		console.log(coin);
 	});
 	
 	chkAlertPrice.on('switchChange.bootstrapSwitch', function(event, state) {
@@ -43,13 +52,13 @@ $(function(){
       $.getJSON("https://api.coinmarketcap.com/v1/ticker/bitcoin/", 
       function(json){
 		 if(json){
-		 	$.map(json, function(coin){
-				$("#price").text(coin.price_usd);
-				$("#change").text(coin.percent_change_24h);
-				$("#marketCap").text(coin.market_cap_usd.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
+		 	$.map(json, function(data){
+				$("#price").text(data.price_usd);
+				$("#change").text(data.percent_change_24h);
+				$("#marketCap").text(data.market_cap_usd.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,"));
 				
-				chrome.storage.sync.get(['alertPrice'], function(prices){
-					if(coin.price_usd <= prices.alertPrice )
+				chrome.storage.sync.get(['isAlertSet', 'alertPrice'], function(coin){
+					if(data.price_usd <= coin.alertPrice && coin.isAlertSet )
 					{
 						var notification = {
 							type: 'basic',
