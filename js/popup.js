@@ -1,14 +1,23 @@
 $(function(){
 	var chkAlertPrice = $("[name='my-checkbox']");
 	chkAlertPrice.bootstrapSwitch({onColor: 'warning', size: 'mini'});
-
+	
+	chrome.storage.sync.get(['isAlertSet', 'alertPrice'], function(coin){
+		$("#alertPrice").val(coin.alertPrice);
+		chkAlertPrice.bootstrapSwitch('state', coin.isAlertSet);
+		console.log(coin);
+	});
+	
 	chkAlertPrice.on('switchChange.bootstrapSwitch', function(event, state) {
-		if(state){
-			$(".alertPrice").show();
-		}
-		else{
-			$(".alertPrice").hide();
-		}
+		chrome.storage.sync.set({'isAlertSet': state}, function(){
+			if(state){
+				$(".alertPrice").show();
+			}
+			else{
+				$("#alertPrice").val('');
+				$(".alertPrice").hide();
+			}
+		});
 	});
 	
 	$("#alertPrice").change(function(){
@@ -23,16 +32,13 @@ $(function(){
 		});
 	});
 	
-	chrome.storage.sync.get(['alertPrice'], function(prices){
-		$("#alertPrice").val(prices.alertPrice);
-		console.log(prices.alertPrice);
-	});
+
 	
 	$("#buyCoin").click(function(e){
 		e.preventDefault();
 		chrome.tabs.create({url: "https://www.coinbase.com/"});
 	});
-	//^\$?(?!0.00)(([0-9]{1,3},([0-9]{3},)*)[0-9]{3}|[0-9]{1,3})(\.[0-9]{2})?$
+	
 	function update() {
       $.getJSON("https://api.coinmarketcap.com/v1/ticker/bitcoin/", 
       function(json){
@@ -54,16 +60,10 @@ $(function(){
 						chrome.notifications.create("setBitAlertNotify", notification);
 					}
 				});
-				
-				//chrome.storage.sync.set({'coin': coin});
-				
-				//chrome.storage.sync.get('coin', function(item){
-				//	console.log(item.coin.price_usd);
-				//});
 			});
 		 }
     });
   }
-	setInterval(update, 10000);
+	setInterval(update, 30000);
 	update();
 });
