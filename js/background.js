@@ -22,13 +22,9 @@ $(function(){
 					});
 				});
 			 }
+			 
 		});
 	}
 	setInterval(update, 30000);
 	update();
 });
-//chrome.storage.onChanged.addListener(function(changes, storageName){
-//	debugger;
-//	console.log(changes.prices);
-	//chrome.browserAction.setBadgeText({"text": changes.coin.newValue.toString()});
-//});

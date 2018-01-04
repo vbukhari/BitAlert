@@ -62,6 +62,10 @@ $(function(){
 				});
 			});
 		 }
+		 else{
+			 $("#bitAlertDiv").hide();
+			 $("#errorDiv").show();
+		 }
     });
   }
 	setInterval(update, 30000);

@@ -17,7 +17,10 @@ body, section {			/* Change width and height to own preferences */
 .input-group.alertPrice {
     width: 225px;
 }
-
+.glyphicon-alert{
+	color: #f0ad4e;
+	font-size: 100px;
+}
 
 /* Basic style tweaks */
 section { padding: 5px;}

@@ -14,23 +14,29 @@
     <div class="panel panel-warning">
 		<div class="panel-heading"><h1 class="text-center">Bitcoin Alert</h1></div>
 		<div class="panel-body">
-			<div class="col-xs-12"><h3><label>Bitcoin ( 1 BTC):</label> $<span id="price"></span></h3></div>
-			<div class="col-md-12"><h3><label>Percent Change (24hr.):</label> <span id="change"></span> %</h3></div>
-			<div class="col-md-12"><h3><label>Market Cap:</label> $<span id="marketCap"></span></h3></div>
-			<div class="col-md-12">
-				<div class="form-group">
-					<label>Set Alert :</label>
-					<div class="make-switch" data-on="warning" data-off="warning"><input type="checkbox" name="my-checkbox" ></div>
-					<div class="input-group alertPrice">
-						<span class="input-group-addon">$</span>
-						<input type="text" id="alertPrice" class="form-control" aria-label="Amount (to the nearest dollar)">
-						<span class="input-group-addon">.00</span>
+			<div id="bitAlertDiv">
+				<div class="col-md-12"><h3><label>Bitcoin ( 1 BTC):</label> $<span id="price"></span></h3></div>
+				<div class="col-md-12"><h3><label>Percent Change (24hr.):</label> <span id="change"></span> %</h3></div>
+				<div class="col-md-12"><h3><label>Market Cap:</label> $<span id="marketCap"></span></h3></div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Set Alert :</label>
+						<div class="make-switch" data-on="warning" data-off="warning"><input type="checkbox" name="my-checkbox" ></div>
+						<div class="input-group alertPrice">
+							<span class="input-group-addon">$</span>
+							<input type="text" id="alertPrice" class="form-control" aria-label="Amount (to the nearest dollar)">
+							<span class="input-group-addon">.00</span>
+						</div>
 					</div>
 				</div>
+				<br>
+				<div class="col-md-2"><button type="button" class="btn btn-default" id="buyCoin"><span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span> Buy On Coinbase </button></div>
 			</div>
-			<br>
-			<div class="col-md-2"><button type="button" class="btn btn-default" id="buyCoin"><span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span> Buy On Coinbase </button></div>
-			
+			<div id="errorDiv" hidden>
+				<div class="col-md-12" style="text-align: center"><span class="glyphicon glyphicon-alert" aria-hidden="true"></span></div>
+				<div class="col-md-12" style="text-align: center"><h2>Temporary Unavailable!</h2></div>
+				<div class="col-md-12" style="text-align: center"><h3>Please checkback with us, Sorry for inconvenience...</h2></div>
+			</div>
 		</div>
     </div>
 </body>	
